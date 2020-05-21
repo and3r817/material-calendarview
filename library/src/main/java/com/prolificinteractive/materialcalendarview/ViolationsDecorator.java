@@ -24,6 +24,7 @@ public class ViolationsDecorator implements DayViewDecorator {
 
     @Override
     public void decorate(DayViewFacade view) {
-        view.addSpan(new CustomMultipleDotSpan(context, 6, color));
+        float dotSpanRadius = context.getResources().getDimension(R.dimen._2sdp);
+        view.addSpan(new CustomMultipleDotSpan(context, dotSpanRadius, color));
     }
 }

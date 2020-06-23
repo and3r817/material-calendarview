@@ -1,13 +1,12 @@
 package com.prolificinteractive.materialcalendarview;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-
-import android.util.AttributeSet;
-import android.view.MotionEvent;
 
 /**
  * Custom ViewPager that allows swiping to be disabled.

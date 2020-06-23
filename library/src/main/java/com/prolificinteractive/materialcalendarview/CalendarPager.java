@@ -1,9 +1,11 @@
 package com.prolificinteractive.materialcalendarview;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
+
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
@@ -45,7 +47,14 @@ class CalendarPager extends RtlViewPager {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        return pagingEnabled && super.onTouchEvent(ev);
+        // TODO: There is an issue inside ViewPager class so that the infoForCurrentScrollPosition() function
+        //  return null value of the current item scrolling position. This happened when the user wanted to
+        //  click on calendar day and scrolling to next month of the calendar. We can enhance this issue later.
+        try {
+            return pagingEnabled && super.onTouchEvent(ev);
+        } catch (NullPointerException exception) {
+            return false;
+        }
     }
 
     @Override

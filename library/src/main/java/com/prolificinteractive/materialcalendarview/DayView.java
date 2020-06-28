@@ -311,8 +311,8 @@ class DayView extends AppCompatCheckedTextView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int extraPadding = (int) getResources().getDimension(R.dimen._10sdp);
-        heightMeasureSpec += extraPadding;
+//        int extraPadding = (int) getResources().getDimension(R.dimen._10sdp);
+//        heightMeasureSpec += extraPadding;
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 }

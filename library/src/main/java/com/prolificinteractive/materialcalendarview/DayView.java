@@ -287,11 +287,6 @@ class DayView extends AppCompatCheckedTextView {
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        int extraPadding = (int) getResources().getDimension(R.dimen._10sdp);
-        getLayoutParams().height = getHeight() + extraPadding;
-        ViewGroup.LayoutParams params = getLayoutParams();
-        params.height = 100;
-        setLayoutParams(params);
         super.onLayout(changed, left, top, right, bottom);
         calculateBounds(right - left, bottom - top);
         regenerateBackground();
@@ -312,5 +307,12 @@ class DayView extends AppCompatCheckedTextView {
             tempRect.set(0, offset, width, radius + offset);
             circleDrawableRect.set(0, circleOffset, width, radius + circleOffset);
         }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int extraPadding = (int) getResources().getDimension(R.dimen._10sdp);
+        heightMeasureSpec += extraPadding;
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 }

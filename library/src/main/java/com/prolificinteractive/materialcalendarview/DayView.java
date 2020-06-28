@@ -16,8 +16,10 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatCheckedTextView;
+
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.view.Gravity;
@@ -66,8 +68,7 @@ class DayView extends AppCompatCheckedTextView {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             setTextAlignment(TEXT_ALIGNMENT_CENTER);
         }
-        int extraPadding = (int) getResources().getDimension(R.dimen._10sdp);
-        setHeight(getHeight() + extraPadding);
+
         setDay(day);
     }
 
@@ -285,6 +286,9 @@ class DayView extends AppCompatCheckedTextView {
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        int extraPadding = (int) getResources().getDimension(R.dimen._10sdp);
+        getLayoutParams().height = getHeight() + extraPadding;
+
         super.onLayout(changed, left, top, right, bottom);
         calculateBounds(right - left, bottom - top);
         regenerateBackground();

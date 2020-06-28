@@ -24,6 +24,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView.ShowOtherDates;
 import com.prolificinteractive.materialcalendarview.format.DayFormatter;
@@ -288,7 +289,9 @@ class DayView extends AppCompatCheckedTextView {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         int extraPadding = (int) getResources().getDimension(R.dimen._10sdp);
         getLayoutParams().height = getHeight() + extraPadding;
-
+        ViewGroup.LayoutParams params = getLayoutParams();
+        params.height = 100;
+        setLayoutParams(params);
         super.onLayout(changed, left, top, right, bottom);
         calculateBounds(right - left, bottom - top);
         regenerateBackground();

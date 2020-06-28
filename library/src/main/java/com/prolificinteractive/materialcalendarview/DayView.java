@@ -296,7 +296,8 @@ class DayView extends AppCompatCheckedTextView {
         // Lollipop platform bug. Circle drawable offset needs to be half of normal offset
         final int circleOffset =
                 Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP ? offset / 2 : offset;
-
+        final int extraPadding = (int) (getResources().getDimension(R.dimen._1sdp));
+        height += extraPadding;
         if (width >= height) {
             tempRect.set(offset, 0, radius + offset, height);
             circleDrawableRect.set(circleOffset, 0, radius + circleOffset, height);

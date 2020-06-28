@@ -68,6 +68,9 @@ class DayView extends AppCompatCheckedTextView {
         }
 
         setDay(day);
+        final int extraPadding = (int) (getResources().getDimension(R.dimen._5sdp));
+
+        setPadding(0,extraPadding,0,extraPadding);
     }
 
     private static Drawable generateBackground(int color, int fadeTime, Rect bounds) {

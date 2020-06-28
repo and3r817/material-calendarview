@@ -83,10 +83,7 @@ abstract class CalendarPagerView extends ViewGroup
         dayView.setOnClickListener(this);
         dayView.setOnLongClickListener(this);
         dayViews.add(dayView);
-        LayoutParams layoutParam = new LayoutParams();
-        layoutParam.bottomMargin = (int) getResources().getDimension(R.dimen._5sdp);
-        layoutParam.topMargin = (int) getResources().getDimension(R.dimen._5sdp);
-        addView(dayView, layoutParam);
+        addView(dayView, new LayoutParams());
     }
 
     protected LocalDate resetAndGetWorkingCalendar() {

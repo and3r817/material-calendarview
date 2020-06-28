@@ -66,7 +66,8 @@ class DayView extends AppCompatCheckedTextView {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             setTextAlignment(TEXT_ALIGNMENT_CENTER);
         }
-
+        int extraPadding = (int) getResources().getDimension(R.dimen._10sdp);
+        setHeight(getHeight() + extraPadding);
         setDay(day);
     }
 

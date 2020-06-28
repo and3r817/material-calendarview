@@ -68,9 +68,6 @@ class DayView extends AppCompatCheckedTextView {
         }
 
         setDay(day);
-        final int extraPadding = (int) (getResources().getDimension(R.dimen._5sdp));
-
-        setPadding(0,extraPadding,0,extraPadding);
     }
 
     private static Drawable generateBackground(int color, int fadeTime, Rect bounds) {
@@ -299,13 +296,12 @@ class DayView extends AppCompatCheckedTextView {
         // Lollipop platform bug. Circle drawable offset needs to be half of normal offset
         final int circleOffset =
                 Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP ? offset / 2 : offset;
-        final int extraPadding = (int) (getResources().getDimension(R.dimen._5sdp));
-        height += extraPadding;
+
         if (width >= height) {
-            tempRect.set(offset, extraPadding, radius + offset, height);
-            circleDrawableRect.set(circleOffset, extraPadding, radius + circleOffset, height);
+            tempRect.set(offset, 0, radius + offset, height);
+            circleDrawableRect.set(circleOffset, 0, radius + circleOffset, height);
         } else {
-            tempRect.set(0, offset + extraPadding, width, radius + offset + extraPadding);
+            tempRect.set(0, offset, width, radius + offset);
             circleDrawableRect.set(0, circleOffset, width, radius + circleOffset);
         }
     }

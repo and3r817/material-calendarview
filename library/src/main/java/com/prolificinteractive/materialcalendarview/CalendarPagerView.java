@@ -240,9 +240,7 @@ abstract class CalendarPagerView extends ViewGroup
     protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
         final int specWidthSize = MeasureSpec.getSize(widthMeasureSpec);
         final int specWidthMode = MeasureSpec.getMode(widthMeasureSpec);
-        final int specHeightSize =
-                (int) (MeasureSpec.getSize(heightMeasureSpec) +
-                        (getResources().getDimension(R.dimen._15sdp) * (getRows() - 1)));
+        final int specHeightSize = (int) (MeasureSpec.getSize(heightMeasureSpec));
         final int specHeightMode = MeasureSpec.getMode(heightMeasureSpec);
 
         //We expect to be somewhere inside a MaterialCalendarView, which should measure EXACTLY

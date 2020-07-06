@@ -52,7 +52,7 @@ public class CustomMultipleDotSpan implements LineBackgroundSpan {
             if (color[i] != 0) {
                 paint.setColor(color[i]);
             }
-            int extraMarginDots = context.getResources().getDimensionPixelSize(R.dimen._6sdp);
+            int extraMarginDots = context.getResources().getDimensionPixelSize(R.dimen._7sdp);
             canvas.drawCircle((left + right) / 2 - leftMost, bottom + extraMarginDots, radius, paint);
             paint.setColor(oldColor);
             leftMost += context.getResources().getDimensionPixelSize(R.dimen._6sdp);

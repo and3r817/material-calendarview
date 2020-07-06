@@ -240,7 +240,7 @@ abstract class CalendarPagerView extends ViewGroup
     protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
         final int specWidthSize = MeasureSpec.getSize(widthMeasureSpec);
         final int specWidthMode = MeasureSpec.getMode(widthMeasureSpec);
-        final int specHeightSize = (int) (MeasureSpec.getSize(heightMeasureSpec));
+        final int specHeightSize = MeasureSpec.getSize(heightMeasureSpec);
         final int specHeightMode = MeasureSpec.getMode(heightMeasureSpec);
 
         //We expect to be somewhere inside a MaterialCalendarView, which should measure EXACTLY
@@ -250,8 +250,7 @@ abstract class CalendarPagerView extends ViewGroup
 
         //The spec width should be a correct multiple
         final int measureTileWidth = specWidthSize / DEFAULT_DAYS_IN_WEEK;
-        final int measureTileHeight = (int) (MeasureSpec.getSize(heightMeasureSpec) / getRows());
-        final int measureDayHeight = specHeightSize / getRows();
+        final int measureTileHeight = specHeightSize / getRows();
 
         //Just use the spec sizes
         setMeasuredDimension(specWidthSize, specHeightSize);
@@ -266,18 +265,11 @@ abstract class CalendarPagerView extends ViewGroup
                     MeasureSpec.EXACTLY
             );
 
-            int childHeightMeasureSpec = 0;
-            if (i >= 7) {
-                childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(
-                        measureDayHeight,
-                        MeasureSpec.EXACTLY
-                );
-            } else {
-                childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(
-                        measureTileHeight,
-                        MeasureSpec.EXACTLY
-                );
-            }
+            int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(
+                    measureTileHeight,
+                    MeasureSpec.EXACTLY
+            );
+
             child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
         }
     }

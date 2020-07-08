@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="extra_height_calendar_day_view">@dimen/_3sdp</dimen>
+</resources>

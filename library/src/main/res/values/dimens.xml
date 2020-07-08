@@ -2,4 +2,5 @@
 <resources>
     <dimen name="mcv_arrow_padding">@dimen/_4sdp</dimen>
     <dimen name="mcv_arrow_margin">@dimen/_4sdp</dimen>
+    <dimen name="extra_height_calendar_day_view">@dimen/_5sdp</dimen>
 </resources>
